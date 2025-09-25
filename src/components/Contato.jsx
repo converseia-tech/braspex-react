@@ -39,29 +39,29 @@ const Contato = () => {
       icon: <Mail className="w-6 h-6" />,
       emoji: "📧",
       label: "E-mail",
-      value: "email@braspex.com.br",
-      href: "mailto:email@braspex.com.br"
+      value: "braspexne@gmail.com ",
+      href: "mailto:braspexne@gmail.com "
     },
     {
       icon: <Phone className="w-6 h-6" />,
       emoji: "📞",
       label: "Telefone",
-      value: "(81) XXXX-XXXX",
-      href: "tel:+5581XXXXXXXX"
+      value: "(81) 3342-1022",
+      href: "http://wa.me/5581986431000"
     },
     {
       icon: <Globe className="w-6 h-6" />,
       emoji: "🌐",
       label: "Website",
       value: "www.braspex.com.br",
-      href: "https://www.braspex.com.br"
+      href: "https://www.braspexne.com.br"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       emoji: "📍",
       label: "Endereço",
-      value: "Pernambuco, Brasil",
-      href: "#"
+      value: "Porta Larga – Jaboatão dos Guararapes/PE",
+      href: "https://share.google/fuX1aRpit49zobeYR"
     }
   ];
 
