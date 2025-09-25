@@ -30,9 +30,10 @@ const Hero = () => {
 
   return (
     <>
-      {/* Hero Banner with Slider */}
-      <section id="home" className="relative h-screen overflow-hidden">
-        <div className="relative w-full h-full">
+      {/* Hero Banner com Slider e Texto */}
+      <section id="home" className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+        {/* Imagens do Slider */}
+        <div className="absolute inset-0 w-full h-full">
           {slides.map((slide, index) => (
             <div
               key={index}
@@ -49,11 +50,37 @@ const Hero = () => {
           ))}
         </div>
         
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        {/* Overlay para Contraste */}
+        <div className="absolute inset-0 bg-black/50"></div>
+        
+        {/* Conteúdo do Hero */}
+        <div className="relative z-10 p-5">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-full mb-8 border border-white/30">
+              <Factory className="w-5 h-5" />
+              <span className="font-medium">Líder em Construções Industriais</span>
+            </div>
+            
+            {/* Título */}
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight" style={{ textShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' }}>
+              Transformando{' '}
+              <span className="text-[#FFD027] relative">
+                Instalações Prediais
+              </span>
+              <br />
+              com Tecnologia e Qualidade
+            </h1>
+            
+            {/* Descrição */}
+            <p className="text-xl text-white/90 max-w-4xl mx-auto leading-relaxed" style={{ textShadow: '0px 2px 4px rgba(0, 0, 0, 0.5)' }}>
+              A BRASPEX revoluciona o setor com kits industrializados sob medida, 
+              reduzindo prazos em até <strong className="text-[#FFD027]">70%</strong> e garantindo máxima qualidade 
+              através de processos controlados em fábrica.
+            </p>
+        </div>
         
         {/* Navigation Dots */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -68,35 +95,9 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* Hero Content Section */}
+      {/* Seção de Vantagens (Cards) */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-6xl mx-auto px-5">
-          <div className="text-center mb-16">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#005563] text-white px-6 py-3 rounded-full mb-8 shadow-lg">
-              <Factory className="w-5 h-5" />
-              <span className="font-medium">Líder em Construções Industriais</span>
-            </div>
-            
-            {/* Title */}
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1)' }}>
-              Transformando{' '}
-              <span className="text-[#005563] relative">
-                Instalações Prediais
-                <div className="absolute -bottom-2 left-0 w-full h-1 bg-[#FFD027] rounded-full"></div>
-              </span>
-              <br />
-              com Tecnologia e Qualidade
-            </h1>
-            
-            {/* Description */}
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              A BRASPEX revoluciona o setor com kits industrializados sob medida, 
-              reduzindo prazos em até <strong className="text-[#005563]">70%</strong> e garantindo máxima qualidade 
-              através de processos controlados em fábrica.
-            </p>
-          </div>
-          
           {/* Feature Cards */}
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
