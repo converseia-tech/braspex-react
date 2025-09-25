@@ -75,11 +75,11 @@ const Hero = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-[#005563] text-white px-6 py-3 rounded-full mb-8 shadow-lg">
               <Factory className="w-5 h-5" />
-              <span className="font-medium">Soluções Industrializadas</span>
+              <span className="font-medium">Líder em Construções Industriais</span>
             </div>
             
             {/* Title */}
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1)' }}>
               Transformando{' '}
               <span className="text-[#005563] relative">
                 Instalações Prediais
