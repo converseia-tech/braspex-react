@@ -5,7 +5,6 @@ import imagemppr from '../assets/imagemppr.jpg.png';
 import imagempert from '../assets/imagempert.png';
 import multicamadaairtecno from '../assets/multicamadaairtecno.png';
 import chassismetalicos from '../assets/chassismetalicos.png';
-import kitsCozinha from '../assets/kits-cozinha.png'; // 1. Importe a nova imagem aqui
 
 const Kits = () => {
   const [modalImage, setModalImage] = useState(null);
@@ -20,6 +19,7 @@ const Kits = () => {
     document.body.style.overflow = 'auto';
   };
 
+  // Estrutura de dados reorganizada para o novo layout
   const kitCategories = [
     {
       id: "kit-agua",
@@ -32,41 +32,20 @@ const Kits = () => {
           title: "Sistema PPR",
           description: "Sistema rígido unido por termofusão, ideal para pontos de consumo que exigem máxima segurança e durabilidade. Suas juntas se tornam uma peça única, eliminando o risco de vazamentos.",
           caption: "Kits em PPR - Polipropileno Copolímero Random",
-          variations: ["Kit Chuveiro Tê Misturador", "Kit Chuveiro Monocomando"]
+          variations: [
+            "Kit Chuveiro Tê Misturador",
+            "Kit Chuveiro Monocomando"
+          ]
         },
         {
           image: imagempert,
           title: "Sistema PERT (PEX)",
           description: "Sistema flexível que agiliza a instalação e reduz o número de conexões. Ideal para obras que buscam produtividade e versatilidade em instalações de água quente e fria.",
           caption: "Kits em PERT - Polyethylene of Raised Temperature",
-          variations: ["Kit Chuveiro Tê Misturador com Registro", "Kit Chuveiro Tê Monocomando com Registro"]
-        }
-      ]
-    },
-    // 2. NOVA CATEGORIA ADICIONADA ABAIXO
-    {
-      id: "kit-cozinha-gas",
-      icon: "🔥",
-      title: "Kits para Cozinha e Gás",
-      description: "Soluções industrializadas para pontos de consumo na cozinha, incluindo aquecedores e distribuição de gás, com a mesma garantia de qualidade e segurança.",
-      items: [
-        {
-          image: kitsCozinha,
-          title: "Kit Aquecedor e Pontos da Cozinha",
-          description: "Sistema completo para alimentação do aquecedor de passagem e pontos de água quente e fria da cozinha.",
-          caption: "Kit Aquecedor e Pontos da Cozinha"
-        },
-        {
-          image: kitsCozinha,
-          title: "Kit Aquecedor, Cozinha e Ponto de Gás",
-          description: "Solução integrada que inclui a distribuição de gás para o fogão, otimizando a instalação e garantindo total compatibilidade.",
-          caption: "Kit Aquecedor, Pontos da Cozinha e Ponto de Gás"
-        },
-        {
-          image: kitsCozinha,
-          title: "Kit Travessa para Cozinha",
-          description: "Componente pré-fabricado para a distribuição organizada dos pontos de água na parede da cozinha.",
-          caption: "Kit Travessa para Cozinha"
+          variations: [
+            "Kit Chuveiro Tê Misturador com Registro",
+            "Kit Chuveiro Tê Monocomando com Registro"
+          ]
         }
       ]
     },
@@ -102,33 +81,57 @@ const Kits = () => {
     <>
       <section id="kits" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-5">
+          {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Nossos Kits Industrializados</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Nossos Kits Industrializados
+            </h2>
             <div className="w-24 h-1 bg-[#FFD027] mx-auto rounded-full mb-8"></div>
           </div>
 
+          {/* Kit Categories */}
           <div className="space-y-20">
             {kitCategories.map((category) => (
               <div key={category.id} id={category.id} className="scroll-mt-24">
+                {/* Category Header */}
                 <div className="text-center mb-12">
                   <div className="flex items-center justify-center gap-4 mb-4">
                     <span className="text-4xl">{category.icon}</span>
-                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900">{category.title}</h3>
+                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
+                      {category.title}
+                    </h3>
                   </div>
                   {category.description && (
-                    <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">{category.description}</p>
+                    <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                      {category.description}
+                    </p>
                   )}
                 </div>
 
+                {/* Kit Items */}
                 <div className="space-y-12">
                   {category.items.map((item, itemIndex) => (
-                    <div key={itemIndex} className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col md:flex-row items-center">
+                    <div
+                      key={itemIndex}
+                      className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col md:flex-row items-center"
+                    >
+                      {/* Imagem */}
                       <div className="w-full md:w-1/2 cursor-pointer" onClick={() => openModal(item)}>
-                        <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
                       </div>
+                      {/* Conteúdo */}
                       <div className="w-full md:w-1/2 p-8">
-                        <h4 className="text-2xl font-bold text-gray-900 mb-3">{item.title}</h4>
-                        <p className="text-gray-600 leading-relaxed mb-6">{item.description}</p>
+                        <h4 className="text-2xl font-bold text-gray-900 mb-3">
+                          {item.title}
+                        </h4>
+                        <p className="text-gray-600 leading-relaxed mb-6">
+                          {item.description}
+                        </p>
+                        {/* Renderiza as variações se existirem */}
                         {item.variations && (
                           <div>
                             <h5 className="font-semibold text-gray-800 mb-3">Modelos Disponíveis:</h5>
