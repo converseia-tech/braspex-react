@@ -2,11 +2,13 @@ import React from 'react';
 import { MessageSquare } from 'lucide-react'; // Ícone para o WhatsApp
 
 const WhatsAppButton = () => {
-  // Substitua 'SEUNUMERO' pelo número de WhatsApp da sua empresa
-  // Ex: 5581999998888 (código do país + DDD + número)
-  const phoneNumber = 'SEUNUMERO';
+  // Coloque aqui o número de WhatsApp da sua empresa
+  // Formato: código do país + DDD + número (tudo junto)
+  const phoneNumber = '5581986431000'; 
   const message = 'Olá! Gostaria de solicitar uma cotação.';
-  const whatsappUrl = `https://wa.me/$81986431000?text=Olá,_gostaria_de_um_orçamento.`;
+  
+  // A URL é construída dinamicamente com as variáveis acima
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (
     <a
