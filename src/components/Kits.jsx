@@ -29,13 +29,13 @@ const Kits = () => {
         {
           image: imagemppr,
           title: "PPR",
-          description: "Polipropileno Copolímero Random para sistemas de água quente e fria.",
+          // A linha abaixo foi alterada para incluir a nova explicação
+          description: "Sistema rígido unido por termofusão, ideal para pontos como chuveiros e aquecedores, garantindo segurança total contra vazamentos.",
           caption: "Kit PPR - Polipropileno Copolímero Random"
         },
         {
           image: imagempert,
           title: "PERT",
-          // A linha abaixo foi alterada para incluir a nova explicação
           description: "Popularmente conhecido como PEX, é ideal para distribuir água quente e fria em chuveiros com misturador ou monocomando.",
           caption: "Kit PERT - Polyethylene of Raised Temperature"
         }
