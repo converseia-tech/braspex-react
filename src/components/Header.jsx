@@ -27,16 +27,18 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-[#005563] z-50 shadow-lg">
+    <header className="fixed top-0 w-full bg-black z-50 shadow-lg"> {/* COR DE FUNDO ALTERADA AQUI */}
       <nav className="max-w-6xl mx-auto px-5">
-        <div className="flex justify-between items-center h-24"> {/* Aumentamos a altura do header para acomodar o logo maior */}
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <div className="nav-logo">
-            <img 
-              src={logoBraspex} 
-              alt="BRASPEX Logo" 
-              className="h-20 w-auto transition-transform duration-300 hover:scale-105" // Classes atualizadas: fundo removido, altura aumentada
-            />
+            <a href="#home" onClick={() => scrollToSection('home')} className="cursor-pointer">
+              <img 
+                src={logoBraspex} 
+                alt="BRASPEX Logo" 
+                className="h-20 w-auto transition-transform duration-300 hover:scale-105"
+              />
+            </a>
           </div>
 
           {/* Desktop Menu */}

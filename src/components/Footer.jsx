@@ -85,10 +85,10 @@ const Footer = () => {
                 <li>
                   <span className="block text-sm text-white/60">E-mail</span>
                   <a 
-                    href="mailto:email@braspex.com.br" 
+                    href="mailto:braspexne@gmail.com" 
                     className="hover:text-[#FFD027] transition-colors duration-300"
                   >
-                    email@braspex.com.br
+                    braspexne@gmail.com
                   </a>
                 </li>
                 <li>
@@ -97,7 +97,7 @@ const Footer = () => {
                     href="tel:+5581XXXXXXXX" 
                     className="hover:text-[#FFD027] transition-colors duration-300"
                   >
-                    (81) XXXX-XXXX
+                    (81) 3342-1022
                   </a>
                 </li>
                 <li>
