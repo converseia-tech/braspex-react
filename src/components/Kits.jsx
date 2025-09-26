@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, CheckCircle } from 'lucide-react';
 import kitsbraspex from '../assets/kitsbraspex.png';
 import imagemppr from '../assets/imagemppr.jpg.png';
 import imagempert from '../assets/imagempert.png';
@@ -19,7 +19,7 @@ const Kits = () => {
     document.body.style.overflow = 'auto';
   };
 
-  // Estrutura de dados reorganizada para destacar cada kit
+  // Estrutura de dados reorganizada para o novo layout
   const kitCategories = [
     {
       id: "kit-agua",
@@ -29,35 +29,30 @@ const Kits = () => {
       items: [
         {
           image: imagemppr,
-          title: "Kit Chuveiro Tê Misturador (PPR)",
-          description: "Sistema PPR rígido unido por termofusão, ideal para controle de água quente e fria com máxima segurança contra vazamentos.",
-          caption: "Kit Chuveiro Tê Misturador em PPR"
-        },
-        {
-          image: imagemppr,
-          title: "Kit Chuveiro Monocomando (PPR)",
-          description: "Oferece controle moderno e simplificado de temperatura e vazão, com a robustez e durabilidade do sistema PPR.",
-          caption: "Kit Chuveiro Monocomando em PPR"
+          title: "Sistema PPR",
+          description: "Sistema rígido unido por termofusão, ideal para pontos de consumo que exigem máxima segurança e durabilidade. Suas juntas se tornam uma peça única, eliminando o risco de vazamentos.",
+          caption: "Kits em PPR - Polipropileno Copolímero Random",
+          variations: [
+            "Kit Chuveiro Tê Misturador",
+            "Kit Chuveiro Monocomando"
+          ]
         },
         {
           image: imagempert,
-          title: "Kit Chuveiro Tê Misturador com Registro (PERT)",
-          description: "Com a flexibilidade do sistema PERT (PEX), permite uma instalação rápida e segura para misturadores tradicionais.",
-          caption: "Kit Chuveiro Tê Misturador com Registro em PERT"
-        },
-        {
-            image: imagempert,
-            title: "Kit Chuveiro Tê Monocomando com Registro (PERT)",
-            description: "A solução ideal para controle preciso com um único comando, aliando design moderno à praticidade de instalação do PERT (PEX).",
-            caption: "Kit Chuveiro Tê Monocomando com Registro em PERT"
-        },
+          title: "Sistema PERT (PEX)",
+          description: "Sistema flexível que agiliza a instalação e reduz o número de conexões. Ideal para obras que buscam produtividade e versatilidade em instalações de água quente e fria.",
+          caption: "Kits em PERT - Polyethylene of Raised Temperature",
+          variations: [
+            "Kit Chuveiro Tê Misturador com Registro",
+            "Kit Chuveiro Tê Monocomando com Registro"
+          ]
+        }
       ]
     },
     {
       id: "kit-ar",
       icon: "🟢",
       title: "Kits de Ar-Condicionado",
-      description: "Solução com Multicamada AirTechno para sistemas de climatização, garantindo máxima eficiência energética e instalação simplificada.",
       items: [
         {
           image: multicamadaairtecno,
@@ -71,12 +66,11 @@ const Kits = () => {
       id: "kit-chassis",
       icon: "⚙️",
       title: "Chassis Metálicos Industriais",
-      description: "Estruturas robustas para chuveiros, aquecedores industriais e travessas, com acabamento premium e montagem precisa.",
       items: [
         {
           image: chassismetalicos,
           title: "Chassis Metálicos",
-          description: "Estruturas para chuveiros, aquecedores e travessas industriais.",
+          description: "Estruturas para chuveiros, aquecedores e travessas industriais, com acabamento premium e montagem precisa.",
           caption: "Chassis Metálicos Industriais"
         }
       ]
@@ -85,7 +79,7 @@ const Kits = () => {
 
   return (
     <>
-      <section id="kits" className="py-20 bg-white">
+      <section id="kits" className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-5">
           {/* Header */}
           <div className="text-center mb-16">
@@ -93,14 +87,10 @@ const Kits = () => {
               Nossos Kits Industrializados
             </h2>
             <div className="w-24 h-1 bg-[#FFD027] mx-auto rounded-full mb-8"></div>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Os kits industrializados da Braspex são conjuntos prontos para instalação, montados em fábrica com 
-              alto padrão técnico. Cada linha de produto é desenvolvida de forma personalizada para garantir máxima eficiência e compatibilidade.
-            </p>
           </div>
 
           {/* Kit Categories */}
-          <div className="space-y-16">
+          <div className="space-y-20">
             {kitCategories.map((category) => (
               <div key={category.id} id={category.id} className="scroll-mt-24">
                 {/* Category Header */}
@@ -111,33 +101,50 @@ const Kits = () => {
                       {category.title}
                     </h3>
                   </div>
-                  <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    {category.description}
-                  </p>
+                  {category.description && (
+                    <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                      {category.description}
+                    </p>
+                  )}
                 </div>
 
                 {/* Kit Items */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div className="space-y-12">
                   {category.items.map((item, itemIndex) => (
                     <div
                       key={itemIndex}
-                      className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden border border-gray-100 cursor-pointer flex flex-col"
-                      onClick={() => openModal(item)}
+                      className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col md:flex-row items-center"
                     >
-                      <div className="overflow-hidden">
+                      {/* Imagem */}
+                      <div className="w-full md:w-1/2 cursor-pointer" onClick={() => openModal(item)}>
                         <img
                           src={item.image}
                           alt={item.title}
-                          className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                       </div>
-                      <div className="p-6 flex-grow flex flex-col">
-                        <h4 className="text-xl font-bold text-gray-900 mb-3 flex-grow">
+                      {/* Conteúdo */}
+                      <div className="w-full md:w-1/2 p-8">
+                        <h4 className="text-2xl font-bold text-gray-900 mb-3">
                           {item.title}
                         </h4>
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-gray-600 leading-relaxed mb-6">
                           {item.description}
                         </p>
+                        {/* Renderiza as variações se existirem */}
+                        {item.variations && (
+                          <div>
+                            <h5 className="font-semibold text-gray-800 mb-3">Modelos Disponíveis:</h5>
+                            <ul className="space-y-2">
+                              {item.variations.map((variation, vIndex) => (
+                                <li key={vIndex} className="flex items-center gap-2">
+                                  <CheckCircle className="w-5 h-5 text-[#005563]" />
+                                  <span className="text-gray-700">{variation}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}
@@ -150,32 +157,14 @@ const Kits = () => {
 
       {/* Modal */}
       {modalImage && (
-        <div 
-          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-          onClick={closeModal}
-        >
-          <div 
-            className="relative max-w-4xl max-h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-white rounded-full p-2 transition-colors duration-200"
-            >
+         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" onClick={closeModal}>
+          <div className="relative max-w-4xl max-h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <button onClick={closeModal} className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-white rounded-full p-2 transition-colors duration-200">
               <X className="w-6 h-6 text-gray-700" />
             </button>
-            <img
-              src={modalImage.image}
-              alt={modalImage.title}
-              className="w-full h-auto max-h-[70vh] object-contain"
-            />
-            <div className="p-6 bg-white">
-              <h4 className="text-2xl font-bold text-gray-900 mb-2">
-                {modalImage.title}
-              </h4>
-              <p className="text-gray-600 leading-relaxed">
-                {modalImage.caption}
-              </p>
+            <img src={modalImage.image} alt={modalImage.title} className="w-full h-auto max-h-[80vh] object-contain" />
+            <div className="p-6 bg-white border-t">
+              <h4 className="text-xl font-bold text-gray-900">{modalImage.caption}</h4>
             </div>
           </div>
         </div>
