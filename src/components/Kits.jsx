@@ -35,7 +35,8 @@ const Kits = () => {
         {
           image: imagempert,
           title: "PERT",
-          description: "Polyethylene of Raised Temperature para instalações hidráulicas.",
+          // A linha abaixo foi alterada para incluir a nova explicação
+          description: "Popularmente conhecido como PEX, é ideal para distribuir água quente e fria em chuveiros com misturador ou monocomando.",
           caption: "Kit PERT - Polyethylene of Raised Temperature"
         }
       ]
