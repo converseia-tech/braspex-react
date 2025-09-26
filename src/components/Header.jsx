@@ -17,7 +17,7 @@ const Header = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 80;
+      const offsetTop = element.offsetTop - 96; // Ajustado para a altura do header
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
@@ -27,12 +27,12 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-black z-50 shadow-lg"> {/* COR DE FUNDO ALTERADA AQUI */}
+    <header className="fixed top-0 w-full bg-white z-50 shadow-md"> {/* Fundo alterado para branco */}
       <nav className="max-w-6xl mx-auto px-5">
         <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <div className="nav-logo">
-            <a href="#home" onClick={() => scrollToSection('home')} className="cursor-pointer">
+            <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }} className="cursor-pointer">
               <img 
                 src={logoBraspex} 
                 alt="BRASPEX Logo" 
@@ -46,7 +46,7 @@ const Header = () => {
             <li>
               <button 
                 onClick={() => scrollToSection('home')} 
-                className="text-white font-medium hover:text-[#FFD027] transition-colors duration-300"
+                className="text-[#005563] font-medium hover:text-[#FFD027] transition-colors duration-300"
               >
                 Home
               </button>
@@ -54,7 +54,7 @@ const Header = () => {
             <li>
               <button 
                 onClick={() => scrollToSection('sobre')} 
-                className="text-white font-medium hover:text-[#FFD027] transition-colors duration-300"
+                className="text-[#005563] font-medium hover:text-[#FFD027] transition-colors duration-300"
               >
                 Sobre
               </button>
@@ -64,7 +64,7 @@ const Header = () => {
                 onClick={() => scrollToSection('kits')}
                 onMouseEnter={() => setIsDropdownOpen(true)}
                 onMouseLeave={() => setIsDropdownOpen(false)}
-                className="flex items-center text-white font-medium hover:text-[#FFD027] transition-colors duration-300"
+                className="flex items-center text-[#005563] font-medium hover:text-[#FFD027] transition-colors duration-300"
               >
                 Nossos Kits
                 <ChevronDown className="ml-1 h-4 w-4" />
@@ -99,7 +99,7 @@ const Header = () => {
             <li>
               <button 
                 onClick={() => scrollToSection('fluxo')} 
-                className="text-white font-medium hover:text-[#FFD027] transition-colors duration-300"
+                className="text-[#005563] font-medium hover:text-[#FFD027] transition-colors duration-300"
               >
                 Fluxo de Execução
               </button>
@@ -107,7 +107,7 @@ const Header = () => {
             <li>
               <button 
                 onClick={() => scrollToSection('contato')} 
-                className="text-white font-medium hover:text-[#FFD027] transition-colors duration-300"
+                className="text-[#005563] font-medium hover:text-[#FFD027] transition-colors duration-300"
               >
                 Contato
               </button>
@@ -125,21 +125,21 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button 
             onClick={toggleMenu}
-            className="lg:hidden text-white p-2"
+            className="lg:hidden text-[#005563] p-2" // Cor do ícone do menu alterada
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        <div className={`lg:hidden transition-all duration-300 ${
+        <div className={`lg:hidden transition-all duration-300 bg-white ${ // Fundo do menu mobile
           isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         } overflow-hidden`}>
           <ul className="py-4 space-y-2">
             <li>
               <button 
                 onClick={() => scrollToSection('home')} 
-                className="block w-full text-left px-4 py-2 text-white hover:text-[#FFD027] transition-colors duration-300"
+                className="block w-full text-left px-4 py-2 text-[#005563] hover:text-[#FFD027] transition-colors duration-300"
               >
                 Home
               </button>
@@ -147,7 +147,7 @@ const Header = () => {
             <li>
               <button 
                 onClick={() => scrollToSection('sobre')} 
-                className="block w-full text-left px-4 py-2 text-white hover:text-[#FFD027] transition-colors duration-300"
+                className="block w-full text-left px-4 py-2 text-[#005563] hover:text-[#FFD027] transition-colors duration-300"
               >
                 Sobre
               </button>
@@ -155,7 +155,7 @@ const Header = () => {
             <li>
               <button 
                 onClick={() => scrollToSection('kits')} 
-                className="block w-full text-left px-4 py-2 text-white hover:text-[#FFD027] transition-colors duration-300"
+                className="block w-full text-left px-4 py-2 text-[#005563] hover:text-[#FFD027] transition-colors duration-300"
               >
                 Nossos Kits
               </button>
@@ -163,7 +163,7 @@ const Header = () => {
             <li>
               <button 
                 onClick={() => scrollToSection('fluxo')} 
-                className="block w-full text-left px-4 py-2 text-white hover:text-[#FFD027] transition-colors duration-300"
+                className="block w-full text-left px-4 py-2 text-[#005563] hover:text-[#FFD027] transition-colors duration-300"
               >
                 Fluxo de Execução
               </button>
@@ -171,12 +171,12 @@ const Header = () => {
             <li>
               <button 
                 onClick={() => scrollToSection('contato')} 
-                className="block w-full text-left px-4 py-2 text-white hover:text-[#FFD027] transition-colors duration-300"
+                className="block w-full text-left px-4 py-2 text-[#005563] hover:text-[#FFD027] transition-colors duration-300"
               >
                 Contato
               </button>
             </li>
-            <li className="pt-2">
+            <li className="pt-2 px-4">
               <button 
                 onClick={() => scrollToSection('contato')}
                 className="w-full bg-[#FFD027] text-[#005563] px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
