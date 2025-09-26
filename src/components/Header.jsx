@@ -29,13 +29,13 @@ const Header = () => {
   return (
     <header className="fixed top-0 w-full bg-[#005563] z-50 shadow-lg">
       <nav className="max-w-6xl mx-auto px-5">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24"> {/* Aumentamos a altura do header para acomodar o logo maior */}
           {/* Logo */}
           <div className="nav-logo">
             <img 
               src={logoBraspex} 
               alt="BRASPEX Logo" 
-              className="h-[70px] w-auto bg-white p-1 rounded-md shadow-md hover:scale-105 transition-transform duration-300"
+              className="h-20 w-auto transition-transform duration-300 hover:scale-105" // Classes atualizadas: fundo removido, altura aumentada
             />
           </div>
 
