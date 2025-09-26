@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Instagram, Linkedin } from 'lucide-react'; // Importe os ícones
 import logoBraspex from '../assets/logo-braspex.png';
 
 const Footer = () => {
@@ -49,14 +49,15 @@ const Footer = () => {
                 oferecendo kits personalizados que revolucionam a construção civil com qualidade, 
                 agilidade e eficiência.
               </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-[#FFD027] rounded-full flex items-center justify-center">
-                  <span className="text-[#005563] font-bold text-lg">B</span>
-                </div>
-                <div>
-                  <p className="font-semibold">BRASPEX</p>
-                  <p className="text-sm text-white/70">Soluções Industrializadas</p>
-                </div>
+              {/* Social Media Icons */}
+              <div className="flex items-center gap-4 mt-8">
+                <h4 className="font-semibold">Siga-nos:</h4>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-[#FFD027] transition-colors duration-300">
+                  <Instagram className="w-6 h-6" />
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-[#FFD027] transition-colors duration-300">
+                  <Linkedin className="w-6 h-6" />
+                </a>
               </div>
             </div>
 
