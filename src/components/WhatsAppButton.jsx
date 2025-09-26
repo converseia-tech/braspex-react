@@ -3,7 +3,7 @@ import { MessageSquare } from 'lucide-react'; // Ícone para o WhatsApp
 
 const WhatsAppButton = () => {
   // Coloque aqui o número de WhatsApp da sua empresa
-  // Formato: código do país + DDD + número (tudo junto)
+  // Formato: código do país + DDD + número (tudo junto, sem espaços ou símbolos)
   const phoneNumber = '5581986431000'; 
   const message = 'Olá! Gostaria de solicitar uma cotação.';
   
