@@ -19,26 +19,38 @@ const Kits = () => {
     document.body.style.overflow = 'auto';
   };
 
+  // Estrutura de dados reorganizada para destacar cada kit
   const kitCategories = [
     {
       id: "kit-agua",
       icon: "🔵",
       title: "Kits de Água Fria e Quente",
-      description: "Sistemas com tubos PERT ou PPR para instalações hidráulicas, oferecendo máxima durabilidade e eficiência.",
+      description: "Soluções completas com sistemas PPR e PERT (PEX), garantindo eficiência e segurança para chuveiros e pontos de consumo.",
       items: [
         {
           image: imagemppr,
-          title: "PPR",
-          // A linha abaixo foi alterada para incluir a nova explicação
-          description: "Sistema rígido unido por termofusão, ideal para pontos como chuveiros e aquecedores, garantindo segurança total contra vazamentos.",
-          caption: "Kit PPR - Polipropileno Copolímero Random"
+          title: "Kit Chuveiro Tê Misturador (PPR)",
+          description: "Sistema PPR rígido unido por termofusão, ideal para controle de água quente e fria com máxima segurança contra vazamentos.",
+          caption: "Kit Chuveiro Tê Misturador em PPR"
+        },
+        {
+          image: imagemppr,
+          title: "Kit Chuveiro Monocomando (PPR)",
+          description: "Oferece controle moderno e simplificado de temperatura e vazão, com a robustez e durabilidade do sistema PPR.",
+          caption: "Kit Chuveiro Monocomando em PPR"
         },
         {
           image: imagempert,
-          title: "PERT",
-          description: "Popularmente conhecido como PEX, é ideal para distribuir água quente e fria em chuveiros com misturador ou monocomando.",
-          caption: "Kit PERT - Polyethylene of Raised Temperature"
-        }
+          title: "Kit Chuveiro Tê Misturador com Registro (PERT)",
+          description: "Com a flexibilidade do sistema PERT (PEX), permite uma instalação rápida e segura para misturadores tradicionais.",
+          caption: "Kit Chuveiro Tê Misturador com Registro em PERT"
+        },
+        {
+            image: imagempert,
+            title: "Kit Chuveiro Tê Monocomando com Registro (PERT)",
+            description: "A solução ideal para controle preciso com um único comando, aliando design moderno à praticidade de instalação do PERT (PEX).",
+            caption: "Kit Chuveiro Tê Monocomando com Registro em PERT"
+        },
       ]
     },
     {
@@ -50,7 +62,7 @@ const Kits = () => {
         {
           image: multicamadaairtecno,
           title: "AirTechno Multicamada",
-          description: "Sistema multicamada para ar-condicionado com alta resistência e flexibilidade.",
+          description: "Para máquinas de 9000 Btus até 48000 Btus (com bitolas de 14mm a 20 mm).",
           caption: "Kit AirTechno - Sistema Multicamada"
         }
       ]
@@ -87,21 +99,10 @@ const Kits = () => {
             </p>
           </div>
 
-          {/* Main Showcase Image */}
-          <div className="text-center mb-20">
-            <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-lg inline-block">
-              <img
-                src={kitsbraspex}
-                alt="Kits Braspex"
-                className="max-w-full h-auto rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-              />
-            </div>
-          </div>
-
           {/* Kit Categories */}
           <div className="space-y-16">
-            {kitCategories.map((category, categoryIndex) => (
-              <div key={categoryIndex} id={category.id} className="scroll-mt-24">
+            {kitCategories.map((category) => (
+              <div key={category.id} id={category.id} className="scroll-mt-24">
                 {/* Category Header */}
                 <div className="text-center mb-12">
                   <div className="flex items-center justify-center gap-4 mb-4">
@@ -116,22 +117,22 @@ const Kits = () => {
                 </div>
 
                 {/* Kit Items */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
                   {category.items.map((item, itemIndex) => (
                     <div
                       key={itemIndex}
-                      className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden border border-gray-100 cursor-pointer"
+                      className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden border border-gray-100 cursor-pointer flex flex-col"
                       onClick={() => openModal(item)}
                     >
-                      <div className="aspect-w-16 aspect-h-12 overflow-hidden">
+                      <div className="overflow-hidden">
                         <img
                           src={item.image}
                           alt={item.title}
-                          className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
-                      <div className="p-6">
-                        <h4 className="text-xl font-bold text-gray-900 mb-3">
+                      <div className="p-6 flex-grow flex flex-col">
+                        <h4 className="text-xl font-bold text-gray-900 mb-3 flex-grow">
                           {item.title}
                         </h4>
                         <p className="text-gray-600 leading-relaxed">
@@ -163,13 +164,11 @@ const Kits = () => {
             >
               <X className="w-6 h-6 text-gray-700" />
             </button>
-            
             <img
               src={modalImage.image}
               alt={modalImage.title}
               className="w-full h-auto max-h-[70vh] object-contain"
             />
-            
             <div className="p-6 bg-white">
               <h4 className="text-2xl font-bold text-gray-900 mb-2">
                 {modalImage.title}
